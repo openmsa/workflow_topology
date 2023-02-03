@@ -2,6 +2,7 @@
 require_once '/opt/fmc_repository/Process/Topology/Common/Topology_populate.php';
 require_once '/opt/fmc_repository/Process/Topology/Common/Topology_common.php';
 require_once '/opt/fmc_repository/Process/Reference/Common/Library/topology_rest.php';
+require_once '/opt/fmc_repository/Process/Reference/Common/Library/configuration_variable_rest.php';
 
 function calculateDeviceTopology($deviceId, $name, $device_nature, $status) {
 	global $context;
