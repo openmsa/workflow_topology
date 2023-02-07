@@ -10,9 +10,9 @@ function calculateDeviceTopology($deviceId, $name, $device_nature, $status) {
 	logTofile("*** calculateDeviceTopology  deviceId: $deviceId name: $name status: $status \n");
 
 	$nodePlace = createTopology($deviceId, $name, $device_nature, "router", "", $status);
-	$response = _configuration_variable_list($context['device_id']);
+	$response = _configuration_variable_list($deviceId);
 	$response = json_decode($response, true);
-	$device_id = $context['device_id'];
+	$device_id = $deviceId;
 	$conf_snmp = $response['wo_newparams'];
 	$check_snmp = array("snmpv3_authKey","snmpv3_authProtocol","snmpv3_privKey","snmpv3_privProtocol","snmpv3_securityEngineID","snmpv3_securityLevel","snmpv3_securityName");
 	$reg = array();
@@ -55,9 +55,6 @@ function calculateDeviceTopology($deviceId, $name, $device_nature, $status) {
 			logTofile(debug_dump($e->getMessage(), "*** calculateDeviceTopology ERROR_2***\n"));
 		}
 	} else {
-		logTofile(debug_dump($error, "*** calculateDeviceTopology ERROR_3 ***\n"));
-	}
-	else {
 		$error = readInformationsFromDevice($deviceId, $community, $address);
 		if ($error == "") {
 			try {
