@@ -86,6 +86,6 @@
     <order>10000</order>
     <visibility>5</visibility>
     <name>Topology</name>
-    <group>MSA|Topology</group>
+    <group>Topology|Developer</group>
   </information>
 </ObjectDefinition>
